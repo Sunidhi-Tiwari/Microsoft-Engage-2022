@@ -5,6 +5,8 @@ import * as Yup from 'yup';
 import { registerUser } from "../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
 
+
+
 import {
   Form,
   Input,
@@ -98,7 +100,7 @@ function RegisterPage(props) {
         } = props;
         return (
           <div className="app">
-            <h2>Sign up</h2>
+            <h1 style = {{color: 'white', fontFamily: 'Georgia'}} >Sign up</h1>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
               <Form.Item required label="Name">
@@ -114,7 +116,7 @@ function RegisterPage(props) {
                   }
                 />
                 {errors.name && touched.name && (
-                  <div className="input-feedback">{errors.name}</div>
+                  <div className="input-feedback" >{errors.name}</div>
                 )}
               </Form.Item>
 

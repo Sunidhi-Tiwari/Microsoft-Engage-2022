@@ -1,7 +1,8 @@
 /node_modules
-/build
 
-dev.js
+/client/node_modules
+
+
 
 
 

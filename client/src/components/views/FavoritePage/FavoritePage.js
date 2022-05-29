@@ -5,6 +5,8 @@ import './favorite.css';
 import { useSelector } from 'react-redux';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../Config'
 
+document.body.style.backgroundColor= '#393E46'
+
 const { Title } = Typography;
 
 function FavoritePage() {
@@ -72,8 +74,9 @@ function FavoritePage() {
     })
 
     return (
-        <div style={{ width: '85%', margin: '3rem auto' }}>
-            <Title level={2} > Favorite Movies By Me </Title>
+        <div>
+        <div style={{ width: '85%', margin: '3rem auto'}}>
+            <Title level={2} style = {{ color:'#ff0000'}}> My Favorites </Title>
             <hr />
             {user.userData && !user.userData.isAuth ?
                 <div style={{ width: '100%', fontSize: '2rem', height: '500px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
@@ -87,7 +90,7 @@ function FavoritePage() {
                         <tr>
                             <th>Movie Title</th>
                             <th>Movie RunTime</th>
-                            <td>Remove from favorites</td>
+                            <th>Remove from favorites</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,6 +98,7 @@ function FavoritePage() {
                     </tbody>
                 </table>
             }
+        </div>
         </div>
     )
 }

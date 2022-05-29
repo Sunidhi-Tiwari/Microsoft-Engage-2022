@@ -1,24 +1,46 @@
 import React from 'react'
 import { Descriptions, Badge } from 'antd';
+import "./Movieinfo.css";
+
 
 function MovieInfo(props) {
 
     const { movie } = props;
     
     return (
-        <Descriptions title="Movie Info" bordered>
-        <Descriptions.Item label="Title">{movie.original_title}</Descriptions.Item>
-        <Descriptions.Item label="release_date">{movie.release_date}</Descriptions.Item>
-        <Descriptions.Item label="revenue">{movie.revenue}</Descriptions.Item>
-        <Descriptions.Item label="runtime">{movie.runtime}</Descriptions.Item>
-        <Descriptions.Item label="vote_average" span={2}>
-        {movie.vote_average}
-        </Descriptions.Item>
-        <Descriptions.Item label="vote_count">{movie.vote_count}</Descriptions.Item>
-        <Descriptions.Item label="status">{movie.status}</Descriptions.Item>
-        <Descriptions.Item label="popularity">{movie.popularity}</Descriptions.Item>
-      </Descriptions>
+      <div className="detail-container">
+        <div className="info">
+          <div className="field">
+            <div className="label">
+              Released: <p className="label-p">{movie.release_date}</p>
+            </div>
+          </div>
+          <div className="field">
+            <div className="label">
+              Runtime: <p className="label-p">{movie.runtime} minutes</p>
+            </div>
+          </div>
+          <div className="field">
+            <div className="label">
+              Vote Average: <p className="label-p">{movie.vote_average}</p>
+            </div>
+          </div>
+          <div className="field">
+            <div className="label">
+            Vote Count: <p className="label-p">{movie.vote_count}</p>
+            </div>
+          </div>
+         
+          <div className="field">
+            <div className="label">
+            Status: <p className="label-p">{movie.status}</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
     )
 }
 
 export default MovieInfo
+

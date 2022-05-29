@@ -6,9 +6,16 @@ import Comments from './Sections/Comments'
 import LikeDislikes from './Sections/LikeDislikes';
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE } from '../../Config'
 import GridCards from '../../commons/GridCards';
-import MainImage from '../../views/LandingPage/Sections/MainImage';
+import Movieimage from '../../views/MovieDetail/Sections/Movieimage';
+import Moviename from '../../views/MovieDetail/Sections/Moviename';
 import MovieInfo from './Sections/MovieInfo';
 import Favorite from './Sections/Favorite';
+
+import './Sections/Button.css'
+
+
+document.body.style.backgroundColor= '#393E46'
+
 function MovieDetailPage(props) {
 
     const movieId = props.match.params.movieId
@@ -72,19 +79,47 @@ function MovieDetailPage(props) {
     }
 
     return (
-        <div>
+        <div style ={{ backgroundColor: '#393E46' }} >
+            <br />
+            <br />
             {/* Header */}
+            <div  >
             {!LoadingForMovie ?
-                <MainImage
+                     <Moviename
+                     
+                     title={Movie.title}
+                    //  text={Movie.overview}
+                     />
+                     :
+                     <div>loading...</div>
+
+            }
+            </div>
+            <div>
+            {!LoadingForMovie ?
+                <Movieimage
                     image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movie.backdrop_path}`}
-                    title={Movie.original_title}
-                    text={Movie.overview}
+                   
                 />
                 :
                 <div>loading...</div>
             }
+            </div>
+            <br />
+            <br />
+            <div className='movietitle'>
+            {!LoadingForMovie ?
+                     <Moviename
+                     
+                    //  title={Movie.original_title}
+                     text={Movie.overview}
+                     />
+                     :
+                     <div>loading...</div>
 
-
+            }
+            </div>
+            <br/>
             {/* Body */}
             <div style={{ width: '85%', margin: '1rem auto' }}>
 
@@ -100,12 +135,17 @@ function MovieDetailPage(props) {
                     <div>loading...</div>
                 }
 
-                <br />
-                {/* Actors Grid*/}
+                      
+            <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem'}}>
+            <button className="button-82-pushable" role="button" onClick={toggleActorView}>
+               <span className="button-82-shadow"></span>
+               <span className="button-82-edge"></span>
+               <span className="button-82-front text">
+               Actors
+               </span>
+             </button>
+             </div>
 
-                <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem' }}>
-                    <Button onClick={toggleActorView}>Toggle Actor View </Button>
-                </div>
 
                 {ActorToggle &&
                     <Row gutter={[16, 16]}>
@@ -125,7 +165,7 @@ function MovieDetailPage(props) {
                 </div>
 
                 {/* Comments */}
-                <Comments movieTitle={Movie.original_title} CommentLists={CommentLists} postId={movieId} refreshFunction={updateComment} />
+                <Comments movieTitle={Movie.title} CommentLists={CommentLists} postId={movieId} refreshFunction={updateComment} />
 
             </div>
 

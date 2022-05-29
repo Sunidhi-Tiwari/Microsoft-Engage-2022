@@ -1,5 +1,5 @@
 table {
-  font-family: arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -9,8 +9,27 @@ th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  /* background-color: #FFD369; */
 }
 
-tr:nth-child(even) {
+
+
+tr{
   background-color: #dddddd;
 }
+
+thead {
+  background-color: #FFD369; 
+}
+
+
+
+
+
+
+.F{
+    font-family: Georgia;
+    font-weight: 250;
+    font-size:20px;
+    color: '#ff0000';
+   }

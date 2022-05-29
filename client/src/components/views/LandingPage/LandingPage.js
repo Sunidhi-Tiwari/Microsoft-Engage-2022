@@ -3,7 +3,11 @@ import { Typography, Row, Button } from 'antd';
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE } from '../../Config'
 import MainImage from './Sections/MainImage'
 import GridCard from '../../commons/GridCards'
+
+
+
 const { Title } = Typography;
+
 function LandingPage() {
     const buttonRef = useRef(null);
 
@@ -27,9 +31,7 @@ function LandingPage() {
         fetch(endpoint)
             .then(result => result.json())
             .then(result => {
-                // console.log(result)
-                // console.log('Movies',...Movies)
-                // console.log('result',...result.results)
+
                 setMovies([...Movies, ...result.results])
                 setMainMovieImage(MainMovieImage || result.results[0])
                 setCurrentPage(result.page)
@@ -63,20 +65,27 @@ function LandingPage() {
     }
 
     return (
-        <div style={{ width: '100%', margin: '0' }}>
+        <div style={{ width: '100%', margin: '0', backgroundColor: '#393E46'}}>
             {MainMovieImage &&
                 <MainImage
                     image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${MainMovieImage.backdrop_path}`}
                     title={MainMovieImage.original_title}
                     text={MainMovieImage.overview}
+                   
+
                 />
 
             }
+            
+            
+            
+          
 
             <div style={{ width: '85%', margin: '1rem auto' }}>
-
-                <Title level={2} > Movies by latest </Title>
-                <hr />
+                <div>
+                <Title level={2} style ={{color: '#FFD369', fontFamily: 'Georgia'}}> Choose a Movie </Title>
+                </div>
+                 <hr />
                 <Row gutter={[16, 16]}>
                     {Movies && Movies.map((movie, index) => (
                         <React.Fragment key={index}>

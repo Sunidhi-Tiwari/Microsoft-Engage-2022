@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Button } from 'antd';
 import { useSelector } from 'react-redux';
+import './Button.css'
 
 function Favorite(props) {
     const user = useSelector(state => state.user)
@@ -80,7 +81,9 @@ function Favorite(props) {
 
     return (
         <>
-            <Button onClick={onClickFavorite} > {!Favorited ? "Add to Favorite" : "Not Favorite"} {FavoriteNumber}</Button>
+           
+            <button className = 'button1' onClick={onClickFavorite} style = {{verticalAlign: 'center'}}>{!Favorited ? "Add to Favorite" : "Remove from Favorite"} &nbsp; &nbsp; {FavoriteNumber}</button> 
+
         </>
     )
 }

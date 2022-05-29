@@ -163,7 +163,7 @@ function LikeDislikes(props) {
                 <Tooltip title="Like">
                     <Icon type="like"
                         theme={LikeAction === 'liked' ? 'filled' : 'outlined'}
-                        onClick={onLike} />
+                        onClick={onLike} style = {{color: 'white'}} />
                 </Tooltip>
                 <span style={{ paddingLeft: '8px', cursor: 'auto' }}>{Likes}</span>
             </span>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -172,7 +172,7 @@ function LikeDislikes(props) {
                     <Icon
                         type="dislike"
                         theme={DislikeAction === 'disliked' ? 'filled' : 'outlined'}
-                        onClick={onDisLike}
+                        onClick={onDisLike} style = {{color: 'white'}}
                     />
                 </Tooltip>
                 <span style={{ paddingLeft: '8px', cursor: 'auto' }}>{Dislikes}</span>
